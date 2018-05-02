@@ -1,0 +1,387 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Test_BusInfo",
+		"_postman_id": "d40de154-b673-b2d7-ca2a-7f9b331d040e",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "{{mp_url}}/{{cb}}/busInformationSysteM?fu=1&ty=3",
+			"request": {
+				"url": {
+					"raw": "{{mp_url}}/{{cb}}/busInformationSysteM?fu=1&ty=3",
+					"host": [
+						"{{mp_url}}"
+					],
+					"path": [
+						"{{cb}}",
+						"busInformationSysteM"
+					],
+					"query": [
+						{
+							"key": "fu",
+							"value": "1",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "ty",
+							"value": "3",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-M2M-RI",
+						"value": "1234534",
+						"description": ""
+					},
+					{
+						"key": "X-M2M-Origin",
+						"value": "SOrigin",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"entities\": [\r\n    {\r\n      \"idPattern\": \"urn:entity:santander:transport:bus:busArrivalEstimation:7\",\r\n      \"type\": \"BusArrivalEstimation\"\r\n    }\r\n  ]\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "BusEstimation Capture ",
+			"request": {
+				"url": "http://[IP]:8080/epcis/Service/EventCapture",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.onem2m-prsp+json",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "X-M2M-RI",
+						"value": "1234534",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "X-M2M-Origin",
+						"value": "S0.2.481.1.1.232466.3",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/xml",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\r\n<!DOCTYPE project>\r\n<epcis:EPCISDocument xmlns:epcis=\"urn:epcglobal:epcis:xsd:1\"\r\n\txmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n\txmlns:example0=\"http://ns.example.com/epcis0\" xmlns:example1=\"http://ns.example.com/epcis1\"\r\n\txmlns:example2=\"http://ns.example.com/epcis2\" xmlns:example3=\"http://ns.example.com/epcis3\"\r\n\txmlns:example=\"http://ns.example.com/epcis\" creationDate=\"2005-07-11T11:30:47.0Z\"\r\n\tschemaVersion=\"1.2\">\r\n\t<EPCISBody>\r\n\t\t<EventList>\r\n\t\t\t<ObjectEvent>\r\n                        <eventTime>2017-09-15T00:23:05.548-04:00</eventTime>\r\n                        <recordTime>2017-09-15T00:23:05.548-04:00</recordTime>\r\n                        <eventTimeZoneOffset>-4:00</eventTimeZoneOffset>\r\n                        <baseExtension>  <eventID>urn:epc:id:sgtin:88000269.7.2</eventID></baseExtension>\r\n                        <epcList>  <epc>urn:epc:id:sgtin:88000269.2027.20000012</epc></epcList>\r\n                        <action>OBSERVE</action>\r\n                        <bizStep>urn:epcglobal:cbv:bizstep:driving</bizStep>\r\n                        <disposition>urn:epcglobal:cbv:disp:on_the line</disposition>\r\n                        <readPoint>\r\n                            <id>urn:epc:id:sgln:8800026900016.2027.2</id>\r\n                        </readPoint>\r\n                        <bizLocation>\r\n                            <id>urn:epc:id:sgln:8800026900016.2027.2</id>\r\n                        </bizLocation>\r\n                        <bizTransactionList>\r\n                            <bizTransaction type=\"urn:epcglobal:cbv:Bus:status\">http://transaction.acme.com/po/urn:epcglobal:cbv:bizstep:driving</bizTransaction>\r\n                        </bizTransactionList>\r\n                        <BIS:id xmlns:BIS=\"http://ns.example.com/id\">urn:entity:santander:transport:bus:busArrivalEstimation:7:2</BIS:id>\r\n                        <BIS:refBusStop xmlns:BIS=\"http://ns.example.com/refBusStop\">urn:entity:santander:transport:bus:busStop:7</BIS:refBusStop>\r\n                        <BIS:refBusLine xmlns:BIS=\"http://ns.example.com/refBusLine\">urn:entity:santander:transport:bus:busLine:2</BIS:refBusLine>\r\n                        <BIS:remainingDistances xmlns:BIS=\"http://ns.example.com/remainingDistances\">[0]</BIS:remainingDistances>\r\n                        <BIS:remainingTimes xmlns:BIS=\"http://ns.example.com/remainingTimes\">[\"P0DT0H0M0S\"]</BIS:remainingTimes>\r\n                        <BIS:destinationBusLines xmlns:BIS=\"http://ns.example.com/destinationBusLines\">[\"CONSUELO BERGES\"]</BIS:destinationBusLines>\r\n                        <BIS:shortID xmlns:BIS=\"http://ns.example.com/shortID\">NA</BIS:shortID>\r\n                        <BIS:remainingStations xmlns:BIS=\"http://ns.example.com/remainingStations\">NA</BIS:remainingStations>\r\n                        <BIS:companyName xmlns:BIS=\"http://ns.example.com/companyName\">NA</BIS:companyName>\r\n                        <BIS:location xmlns:BIS=\"http://ns.example.com/location\">NA</BIS:location>\r\n                        <BIS:dateModified xmlns:BIS=\"http://ns.example.com/dateModified\">2017-09-15T04:21:55.00Z</BIS:dateModified>\r\n                    </ObjectEvent>\r\n\t\t</EventList>\r\n\t</EPCISBody>\r\n</epcis:EPCISDocument>\r\n"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "BusLine Capture ",
+			"request": {
+				"url": "http://[IP]:8080/epcis/Service/EventCapture",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.onem2m-prsp+json",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "X-M2M-RI",
+						"value": "1234534",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "X-M2M-Origin",
+						"value": "S0.2.481.1.1.232466.3",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/xml",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<!DOCTYPE project>\r\n<epcis:EPCISDocument xmlns:epcis=\"urn:epcglobal:epcis:xsd:1\"\r\nxmlns:p=\"http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader\"\r\nxmlns:example=\"http://ns.example.com/epcis\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\ncreationDate=\"2005-07-11T11:30:47.0Z\" schemaVersion=\"1.2\">\r\n<EPCISHeader>\r\n<p:StandardBusinessDocumentHeader>\r\n<p:HeaderVersion>1.2</p:HeaderVersion>\r\n<p:Sender><p:Identifier Authority=\"\">p:Identifier</p:Identifier></p:Sender>\r\n<p:Receiver><p:Identifier Authority=\"\">p:Identifier</p:Identifier></p:Receiver>\r\n<p:DocumentIdentification>\r\n<p:Standard>EPCglobal</p:Standard>\r\n<p:TypeVersion>1.2</p:TypeVersion>\r\n<p:InstanceIdentifier>p:InstanceIdentifier</p:InstanceIdentifier>\r\n<p:Type>MasterData</p:Type>\r\n<p:MultipleType>true</p:MultipleType>\r\n<p:CreationDateAndTime>2001-12-31T12:00:00</p:CreationDateAndTime>\r\n</p:DocumentIdentification>\r\n</p:StandardBusinessDocumentHeader>\r\n<extension>\r\n<EPCISMasterData>\r\n<VocabularyList>\r\n<Vocabulary type=\"urn:gs1:epcis:santander:bus:line:info\">\r\n<VocabularyElementList>\r\n<VocabularyElement id=\"urn:epc:id:sgtin:88000269.201.103\">\r\n<attribute id=\"http://epcis.example.com/bus/stop/id\">urn:entity:santander:transport:bus:busLine:103</attribute>\r\n<attribute id=\"http://epcis.example.com/bus/line/localID\">103</attribute>\r\n<attribute id=\"http://epcis.example.com/bus/line/shortID\">N3</attribute>\r\n<attribute id=\"http://epcis.example.com/bus/line/name\">PEÑACASTILLO-PLAZA DE ITALIA </attribute>\r\n<attribute id=\"http://epcis.example.com/bus/line/refBusStops\">[urn:entity:santander:transport:bus:busStop:307,urn:entity:santander:transport:bus:busStop:308,urn:entity:santander:transport:bus:busStop:309,urn:entity:santander:transport:bus:busStop:310,urn:entity:santander:transport:bus:busStop:311,urn:entity:santander:transport:bus:busStop:321]</attribute>\r\n<attribute id=\"http://epcis.example.com/bus/line/refStartBusStop\">NA</attribute>\r\n<attribute id=\"http://epcis.example.com/bus/line/refEndBusStop\">NA</attribute>\r\n<attribute id=\"http://epcis.example.com/bus/line/busLineType\">NA</attribute>\r\n<attribute id=\"http://epcis.example.com/bus/line/startTime\">NA</attribute>\r\n<attribute id=\"http://epcis.example.com/bus/line/endTime\">NA</attribute>\r\n<attribute id=\"http://epcis.example.com/bus/line/intervalNorm\">NA</attribute>\r\n<attribute id=\"http://epcis.example.com/bus/line/intervalHoli\">NA</attribute>\r\n<attribute id=\"http://epcis.example.com/bus/line/intervalPeak\">NA</attribute>\r\n<attribute id=\"http://epcis.example.com/bus/line/datemodified\">2017-09-13T22:13:27.00Z</attribute>\r\n</VocabularyElement>\r\n</VocabularyElementList>\r\n</Vocabulary>\r\n</VocabularyList>\r\n</EPCISMasterData>\r\n</extension>\r\n</EPCISHeader>\r\n<EPCISBody>\r\n<EventList>\r\n</EventList>\r\n</EPCISBody>\r\n</epcis:EPCISDocument>"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete BusInformationSystem",
+			"request": {
+				"url": "{{mp_url}}/{{cb}}/BusInformationSystem",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/onem2m-resource+xml",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/onem2m-resource+xml; ty=2",
+						"description": ""
+					},
+					{
+						"key": "X-M2M-RI",
+						"value": "1234534",
+						"description": ""
+					},
+					{
+						"key": "X-M2M-Origin",
+						"value": "SOrigin",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<m2m:ae xmlns:m2m=\"http://www.onem2m.org/xml/protocols\"> \n<api>app-sensor</api>\n<rr>false</rr>\n<rn>busInformationsystem</rn>\n<App-ID>busInformationsystem</App-ID>\n</m2m:ae>"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Intialize MMG",
+			"request": {
+				"url": "http://[IP]:8093/post_gs1",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/onem2m-resource+xml",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-M2M-RI",
+						"value": "1234534",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "X-M2M-Origin",
+						"value": "SOrigin",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"epcis_ip\":\"[IP]\",\r\n\t\"epcis_port\":\"8080\",\r\n\t\"oneM2M_ip\":\"143.248.55.183\",\r\n\t\"oneM2M_port\":\"7579\",\r\n\t\"oneM2M_mqtt_port\":\"1883\",\r\n\t\"epcis_ip_mqtt\":\"[IP]\",\r\n\t\"epcis_port_mqtt\" : \"1883\"\r\n}\r\n"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "BusStop Capture ",
+			"request": {
+				"url": "http://[IP]:8080/epcis/Service/EventCapture",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.onem2m-prsp+json",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "X-M2M-RI",
+						"value": "1234534",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "X-M2M-Origin",
+						"value": "S0.2.481.1.1.232466.3",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/xml",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<!DOCTYPE project>\r\n<epcis:EPCISDocument xmlns:epcis=\"urn:epcglobal:epcis:xsd:1\"\r\n\txmlns:p=\"http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader\"\r\n\txmlns:example=\"http://ns.example.com/epcis\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n\tcreationDate=\"2005-07-11T11:30:47.0Z\" schemaVersion=\"1.2\">\r\n\t<EPCISHeader>\r\n\t\t<p:StandardBusinessDocumentHeader>\r\n\t\t    <!-- Required -->\r\n\t\t\t<p:HeaderVersion>1.2</p:HeaderVersion>\r\n\t\t\t<p:Sender>\r\n\t\t\t\t<p:Identifier Authority=\"\">p:Identifier</p:Identifier>\r\n\t\t\t</p:Sender>\r\n\t\t\t<p:Receiver>\r\n\t\t\t\t<p:Identifier Authority=\"\">p:Identifier</p:Identifier>\r\n\t\t\t</p:Receiver>\r\n\t\t\t<p:DocumentIdentification>\r\n\t\t\t    <!-- Required -->\r\n\t\t\t\t<p:Standard>EPCglobal</p:Standard>\r\n\t\t\t\t<!-- Required -->\r\n\t\t\t\t<p:TypeVersion>1.2</p:TypeVersion>\r\n\t\t\t\t<p:InstanceIdentifier>p:InstanceIdentifier</p:InstanceIdentifier>\r\n\t\t\t\t<!-- Required -->\r\n\t\t\t\t<p:Type>MasterData</p:Type>\r\n\t\t\t\t<p:MultipleType>true</p:MultipleType>\r\n\t\t\t\t<p:CreationDateAndTime>2001-12-31T12:00:00</p:CreationDateAndTime>\r\n\t\t\t</p:DocumentIdentification>\r\n\t\t</p:StandardBusinessDocumentHeader>\r\n\t\t<extension>\r\n\t\t\t<EPCISMasterData>\r\n\t\t\t\t<VocabularyList>\r\n\t\t\t\t\t<Vocabulary type=\"urn:gs1:epcis:santander:bus:stop:info\">\r\n                        <VocabularyElementList>\r\n                            <VocabularyElement id=\"urn:epc:id:sgtin:88000269.200.90\">\r\n                                <attribute id=\"http://epcis.example.com/bus/stop/id\">\r\n\t\t\t\t\turn:entity:santander:transport:bus:busStop:90</attribute>\r\n                                <attribute id=\"http://epcis.example.com/bus/stop/refBuses\">NA</attribute>\r\n                                <attribute id=\"http://epcis.example.com/bus/stop/shortID\">90</attribute>\r\n                                <attribute id=\"http://epcis.example.com/bus/stop/busStopCount\">NA</attribute>\r\n                                <attribute id=\"http://epcis.example.com/bus/stop/name\">Barrio Las Tejeras</attribute>\r\n                                <attribute id=\"http://epcis.example.com/bus/stop/location\">\r\n\t\t\t\t\t[-3.878289196,43.438962839]</attribute>\r\n                                <attribute id=\"http://epcis.example.com/bus/stop/datemodified\">\r\n\t\t\t\t\t2017-03-27T22:25:55.00Z</attribute>\r\n                                <attribute id=\"http://epcis.example.com/bus/stop/address\">Barrio Las Tejeras</attribute>\r\n                                <attribute id=\"http://epcis.example.com/bus/stop/direction\">Ojaiz</attribute>\r\n                            </VocabularyElement>\r\n                        </VocabularyElementList>\r\n                    </Vocabulary>\r\n\t\t\t\t</VocabularyList>\r\n\t\t\t</EPCISMasterData>\r\n\t\t</extension>\r\n\t</EPCISHeader>\r\n\t<EPCISBody>\r\n\t\t<EventList>\r\n\t\t</EventList>\r\n\t</EPCISBody>\r\n</epcis:EPCISDocument>\r\n"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Start Index One",
+			"request": {
+				"url": {
+					"raw": "http://[IP]:8093/BIS/startEventCapture?city=busan&startIndex=59&endIndex=60",
+					"protocol": "http",
+					"host": [
+						"143",
+						"248",
+						"55",
+						"159"
+					],
+					"port": "8093",
+					"path": [
+						"BIS",
+						"startEventCapture"
+					],
+					"query": [
+						{
+							"key": "city",
+							"value": "busan",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "startIndex",
+							"value": "59",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "endIndex",
+							"value": "60",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/onem2m-resource+xml",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/onem2m-resource+xml; ty=4",
+						"description": ""
+					},
+					{
+						"key": "X-M2M-RI",
+						"value": "1234534",
+						"description": ""
+					},
+					{
+						"key": "X-M2M-Origin",
+						"value": "SOrigin",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<m2m:cin xmlns:m2m=\"http://www.onem2m.org/xml/protocols\">\r\n<typeOfContent>String</typeOfContent>\r\n<con>{\"id\":\"\\n\\t\\t\\t\\t\\turn:entity:santander:transport:bus:busStop:90\",\"refBuses\":\"NA\",\"shortID\":\"90\",\"busStopCount\":\"NA\",\"name\":\"Barrio Las Tejeras\",\"location\":\"\\n\\t\\t\\t\\t\\t[-3.878289196,43.438962839]\",\"address\":{\"PostalAddress\": {\"streetAddress\": \"7 S. Broadway\",\"addressLocality\": \"Denver\",\"addressRegion\": \"CO\",\"postalCode\": \"80209\"}},\"direction\":\"Ojaiz\",\"refBusLines\":null,\"dateModified\":\"\\n\\t\\t\\t\\t\\t2017-03-27T22:25:55.00Z\"}</con>\r\n<cr>busStop</cr>\r\n<linkType>no</linkType>\r\n</m2m:cin>"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "LIst ",
+			"request": {
+				"url": {
+					"raw": "{{mp_url}}/{{cb}}?fu=1&ty=4",
+					"host": [
+						"{{mp_url}}"
+					],
+					"path": [
+						"{{cb}}"
+					],
+					"query": [
+						{
+							"key": "fu",
+							"value": "1",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "ty",
+							"value": "4",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-M2M-RI",
+						"value": "1234534",
+						"description": ""
+					},
+					{
+						"key": "X-M2M-Origin",
+						"value": "SOrigin",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"entities\": [\r\n    {\r\n      \"idPattern\": \"urn:entity:santander:transport:bus:busArrivalEstimation:7\",\r\n      \"type\": \"BusArrivalEstimation\"\r\n    }\r\n  ]\r\n}"
+				},
+				"description": "List all containers under busInformationSystem Application"
+			},
+			"response": []
+		}
+	]
+}
