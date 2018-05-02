@@ -7,7 +7,7 @@
 2. Run EPCIS with MQTT Enabled 
 3. Run GS1_oneM2M_MMG 
 
-once the GS1_oneM2M_MMG  is running configure it using POST 
+once the GS1_oneM2M_MMG  is running, configure it using POST as follows
 
 |  // |       |
 | ------------- | ------------- |
@@ -17,8 +17,8 @@ once the GS1_oneM2M_MMG  is running configure it using POST
 
 
 ### Additional Notes 
--> Use Spring boot
--> Sample postman collection is provided for test under the example directory
+...Use Spring boot
+...Sample postman collection is provided for test under the example directory
 
 ## License
 [Apache License 2.0](https://github.com/yalewkidane/GS1_oneM2M_MMG/blob/master/LICENSE)
